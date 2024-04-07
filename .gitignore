@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+ptt_movie_venv/
 
 # Spyder project settings
 .spyderproject
