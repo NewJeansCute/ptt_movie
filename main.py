@@ -34,7 +34,8 @@ while True:
                     print("pushes\n")
 
                     for i in v:
-                        push_string = f"{i['push_tag']} {i['push_userid']} {i['push_content']} {datetime.strftime(i['push_time'], '%m-%d %H:%M')}"
+                        push_time = datetime.strftime(i['push_time'], '%m-%d %H:%M')
+                        push_string = f"{i['push_tag']} {i['push_userid']} {i['push_content']} {push_time}"
                         print(push_string, "\n")
                 
                 else:
