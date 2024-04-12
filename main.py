@@ -26,22 +26,29 @@ while True:
                 print(f"{article['article_id'] : <15}{article['title']}")
 
         elif action == 2:
-            article_id = int(input("Enter an article_id: "))
-            article = movies.find_one({"article_id": article_id}, {"_id": 0})
+            while True:
+                article_id = int(input("Enter an article_id: "))
+                article = movies.find_one({"article_id": article_id}, {"_id": 0})
 
-            for k, v in article.items():
-                if k == "pushes":
-                    print("pushes\n")
+                if article:
+                    for k, v in article.items():
+                        if k == "pushes":
+                            print("pushes\n")
 
-                    for i in v:
-                        push_time = datetime.strftime(i['push_time'], '%m-%d %H:%M')
-                        push_string = f"{i['push_tag']} {i['push_userid']} {i['push_content']} {push_time}"
-                        print(push_string, "\n")
-                
+                            for i in v:
+                                push_time = datetime.strftime(i['push_time'], '%m-%d %H:%M')
+                                push_string = f"{i['push_tag']} {i['push_userid']} {i['push_content']} {push_time}"
+                                print(push_string, "\n")
+                        
+                        else:
+                            print(k, "\n")
+                            print(v, "\n")
+
+                    break
+
                 else:
-                    print(k, "\n")
-                    print(v, "\n")
-
+                    print("Article not found, try again.")
+            
         elif action == 3:
             print("Bye.")
             break
