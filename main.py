@@ -27,7 +27,7 @@ while True:
 
         elif action == 2:
             while True:
-                article_id = int(input("Enter an article_id: "))
+                article_id = int(input("Enter an article_id or 0 to switch to other actions: "))
                 article = movies.find_one({"article_id": article_id}, {"_id": 0})
 
                 if article:
