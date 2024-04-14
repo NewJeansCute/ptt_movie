@@ -24,6 +24,12 @@ try:
         href_list.append(a.get_attribute("href"))
 
     # 往後九頁
+    for page in range(9):
+        driver.find_element(By.XPATH, "//a[@class='btn wide' and contains(text(), '‹ 上頁')]").click()
+
+        for a in driver.find_elements(By.CSS_SELECTOR, ".title a"):
+            href_list.append(a.get_attribute("href"))
+
     for page_num in range(10072, 10081):
         driver.get(f"https://www.ptt.cc/bbs/movie/index{page_num}.html")
 
