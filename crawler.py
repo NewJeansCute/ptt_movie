@@ -30,12 +30,6 @@ try:
         for a in driver.find_elements(By.CSS_SELECTOR, ".title a"):
             href_list.append(a.get_attribute("href"))
 
-    for page_num in range(10072, 10081):
-        driver.get(f"https://www.ptt.cc/bbs/movie/index{page_num}.html")
-
-        for a in driver.find_elements(By.CSS_SELECTOR, ".title a"):
-            href_list.append(a.get_attribute("href"))
-
     # 抓取文章標題、內容、回文
     article_id: int = 1
 
