@@ -46,7 +46,8 @@ try:
 
         # 回文
         push_objs: list[dict] = []
-        pushes = soup.select("div.push")
+        url_span = soup.select("span.f2")[-1]
+        pushes = url_span.find_all_next("div", class_="push")
 
         for push in pushes:
             spans = push.contents
